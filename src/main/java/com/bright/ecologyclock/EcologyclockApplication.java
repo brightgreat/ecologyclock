@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.bright.ecologyclock")
+@MapperScan("com.bright.ecologyclock.mapper")
 public class EcologyclockApplication {
 
     public static void main(String[] args) {

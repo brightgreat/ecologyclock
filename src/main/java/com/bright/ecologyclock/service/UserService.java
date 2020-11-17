@@ -4,6 +4,6 @@ import com.bright.ecologyclock.bean.UserBean;
 
 public interface UserService {
 
-    UserBean loginIn(String code, String psswd);
+    UserBean loginIn(String name, String password);
 
 }
