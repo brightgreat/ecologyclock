@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = "/ecology")
 public class LoginController {
 
     @Autowired
