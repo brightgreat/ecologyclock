@@ -24,5 +24,7 @@ public interface UserService {
     //查询所有用户
     List<UserBean> queryAllUser();
 
+    //根据私有email地址查询账户信息
+    UserBean getUser(String email);
 
 }

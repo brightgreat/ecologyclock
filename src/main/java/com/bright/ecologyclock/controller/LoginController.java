@@ -15,7 +15,7 @@ import java.util.Map;
 public class LoginController {
 
     @Autowired
-    UserService userService;
+    UserService usSvc;
 
     @RequestMapping("/login")
     public String show() {
@@ -24,7 +24,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     public String login(String name, String password) {
-        UserBean userBean = userService.loginIn(name, password);
+        UserBean userBean = usSvc.loginIn(name, password);
         if (userBean != null) {
             return "success";
         } else {
@@ -34,6 +34,7 @@ public class LoginController {
 
     /**
      * 打卡接口
+     *
      * @param request
      * @param params
      * @return
@@ -42,6 +43,12 @@ public class LoginController {
     public String sumDaily(HttpServletRequest request, @RequestParam Map<String, String> params) {
         String email = params.get("email");
         System.out.println(email);
-        return "success";
+        UserBean userBean = usSvc.getUser(email);
+        if (userBean != null) {
+            return "ecoloSuccess";
+        } else {
+            return "error";
+        }
+
     }
 }
