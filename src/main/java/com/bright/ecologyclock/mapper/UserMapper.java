@@ -23,4 +23,8 @@ public interface UserMapper {
 
     //查询所有用户
     List<UserBean> getAllUser();
+
+    //根据接口的邮箱查询相关的所有信息
+    UserBean getUser(String name);
+
 }

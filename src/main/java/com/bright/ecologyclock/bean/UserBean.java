@@ -5,6 +5,9 @@ public class UserBean {
     private String name;
     private String password;
     private String role;
+    private String ecologyCode;
+    private String ecologyPasswd;
+    private String ecologyAddress;
 
     public String getRole() {
         return role;
@@ -36,5 +39,30 @@ public class UserBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public String getEcologyCode() {
+        return ecologyCode;
+    }
+
+    public void setEcologyCode(String ecologyCode) {
+        this.ecologyCode = ecologyCode;
+    }
+
+    public String getEccologyPasswd() {
+        return ecologyPasswd;
+    }
+
+    public void setEcologyPasswd(String ecologyPasswd) {
+        this.ecologyPasswd = ecologyPasswd;
+    }
+
+    public String getEcologyAddress() {
+        return ecologyAddress;
+    }
+
+    public void setEcologyAddress(String ecologyAddress) {
+        this.ecologyAddress = ecologyAddress;
     }
 }

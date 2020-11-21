@@ -86,4 +86,9 @@ public class UserServiceImpl implements UserService {
     public List<UserBean> queryAllUser() {
         return userMapper.getAllUser();
     }
+
+    @Override
+    public UserBean getUser(String name) {
+        return userMapper.getUser(name);
+    }
 }

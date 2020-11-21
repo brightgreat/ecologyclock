@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+import static com.bright.ecologyclock.service.punchClock.punClock;
+
 @Controller
 public class LoginController {
 
@@ -40,11 +42,12 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/ecologyclock")
-    public String sumDaily(HttpServletRequest request, @RequestParam Map<String, String> params) {
-        String email = params.get("email");
-        System.out.println(email);
-        UserBean userBean = usSvc.getUser(email);
-        if (userBean != null) {
+    public String sumDaily(HttpServletRequest request, @RequestParam Map<String, String> params) throws Exception {
+        String name = params.get("email");
+        System.out.println(name);
+        UserBean userBean = usSvc.getUser(name);
+        String res = punClock(userBean);
+        if ("success".equals(res)) {
             return "ecoloSuccess";
         } else {
             return "error";
