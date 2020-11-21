@@ -17,9 +17,9 @@
     <!--插入新用户信息，ID是自动生成的,返回数据库操作影响行数，为0则是失败-->
     <insert id="insertUser" parameterType="com.bright.ecologyclock.bean.UserBean">
         INSERT InTO
-            user(name,password,role)
+            user(name,password,role,ecologyCode,ecologyPasswd,ecologyAddress)
         values
-            (#{name},#{password},#{role});
+            (#{name},#{password},#{role},#{ecologyCode},#{ecologyPasswd},#{ecologyAddress});
     </insert>
 
     <!--根据ID删除用户，返回数据库操作影响行数，为0则是失败-->
@@ -33,7 +33,10 @@
         UPDATE user
         SET password = #{password},
             name = #{name},
-            role = #{role}
+            role = #{role},
+            ecologyCode = #{ecologyCode},
+            ecologyPasswd = #{ecologyPasswd},
+            ecologyAddress = #{ecologyAddress}
         WHERE id = #{id};
     </update>
 

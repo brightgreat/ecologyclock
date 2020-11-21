@@ -39,7 +39,7 @@ public class punchClock {
         String dakaUrl = "http://oa.ittx.com.cn/api/hrm/kq/attendanceButton/punchButton?address=" + ub.getEcologyAddress() + "&longitude=" + loc[0] + "&latitude=" + loc[1] + "&locationshowaddress=1&locationid=25";
 
         //将加密的密码进行解密传输
-        String pwd = decord(ub.getEccologyPasswd());
+        String pwd = decord(ub.getEcologyPasswd());
         //登录获取session
         String sessionId = callHttp(loginUrl + "?loginid=" + ub.getEcologyCode() + "&userpassword=" + pwd, "", true);
         //打卡程序请求

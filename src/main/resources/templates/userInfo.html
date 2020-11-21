@@ -29,6 +29,18 @@
                 <label for="pwd">Password:</label>
                 <input type="text" class="form-control" name="pwd" id = "pwd" th:value="${user.getPassword()}">
             </div>
+            <div class="form-group">
+                <label for="ecologyCode">ecologyCode:</label>
+                <input type="text" class="form-control" name="ecologyCode" id="ecologyCode" th:value="${user.getEcologyCode()}">
+            </div>
+            <div class="form-group">
+                <label for="ecologyPasswd">ecologyPasswd:</label>
+                <input type="text" class="form-control" name="ecologyPasswd" id="ecologyPasswd" th:value="${user.getEcologyPasswd()}">
+            </div>
+            <div class="form-group">
+                <label for="ecologyAddress">ecologyAddress:</label>
+                <input type="text" class="form-control" name="ecologyAddress" id="ecologyAddress" th:value="${user.getEcologyAddress()}">
+            </div>
             <div class="form-check">
                 <label for="role">role:</label>
                 <select class="form-control" name="role" id = "role" th:value="${user.getRole()}">
@@ -54,15 +66,21 @@
             var name = $("#name").val();
             var password = $("#pwd").val();
             var role = $("#role").val();
+            var ecologyCode = $("#ecologyCode").val();
+            var ecologyPasswd = $("#ecologyPasswd").val();
+            var ecologyAddress = $("#ecologyAddress").val();
             //判断是否有未填项
-            if(isBlank(name) || isBlank(password) || isBlank(role)){
+            if(isBlank(name) || isBlank(password) || isBlank(role)|| isBlank(ecologyCode)|| isBlank(ecologyPasswd)|| isBlank(ecologyAddress)){
                 window.confirm("请完善信息");
             }else {
                 var param = {
                     "id": id,
                     "name": name,
                     "password": password,
-                    "role": role
+                    "role": role,
+                    "ecologyCode": ecologyCode,
+                    "ecologyPasswd": ecologyPasswd,
+                    "ecologyAddress": ecologyAddress
                 };
                 $.ajax({
                     url:"/modifyUser", //请求url

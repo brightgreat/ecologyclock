@@ -50,7 +50,7 @@ public class UserBean {
         this.ecologyCode = ecologyCode;
     }
 
-    public String getEccologyPasswd() {
+    public String getEcologyPasswd() {
         return ecologyPasswd;
     }
 

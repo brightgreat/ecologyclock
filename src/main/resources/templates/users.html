@@ -23,6 +23,9 @@
                 <th>用户名称</th>
                 <th>用户密码</th>
                 <th>用户权限</th>
+                <th>ecologyCode</th>
+                <th>ecologyPasswd</th>
+                <th>ecologyAddress</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -32,6 +35,9 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.password}"></td>
                 <td th:text="${user.role}"></td>
+                <td th:text="${user.ecologyCode}"></td>
+                <td th:text="${user.ecologyPasswd}"></td>
+                <td th:text="${user.ecologyAddress}"></td>
                 <td>
                     <a th:href = "@{/user+{id}(id=${user.id})}">修改</a>
                     <a th:href = "@{/deleteUser+{id}(id=${user.id})}" id = "delete">删除</a>
@@ -57,6 +63,18 @@
                     <option>user</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="ecologyCode">ecologyCode:</label>
+                <input type="text" class="form-control" name="ecologyCode" id="ecologyCode">
+            </div>
+            <div class="form-group">
+                <label for="ecologyPasswd">ecologyPasswd:</label>
+                <input type="text" class="form-control" name="ecologyPasswd" id="ecologyPasswd">
+            </div>
+            <div class="form-group">
+                <label for="ecologyAddress">ecologyAddress:</label>
+                <input type="text" class="form-control" name="ecologyAddress" id="ecologyAddress">
+            </div>
         </form>
         <button id = "add">AddUser</button>
 
@@ -76,14 +94,20 @@
             var name = document.forms["addUser"]["name"].value;
             var password = document.forms["addUser"]["pwd"].value;
             var role = document.forms["addUser"]["role"].value;
+            var ecologyCode = document.forms["addUser"]["ecologyCode"].value;
+            var ecologyPasswd = document.forms["addUser"]["ecologyPasswd"].value;
+            var ecologyAddress = document.forms["addUser"]["ecologyAddress"].value;
             //判断是否有未填项
-            if(isBlank(name) || isBlank(password) || isBlank(role)){
+            if(isBlank(name) || isBlank(password) || isBlank(role)|| isBlank(ecologyCode)|| isBlank(ecologyPasswd)|| isBlank(ecologyAddress)){
                 window.confirm("请完善信息");
             }else {
                 var param = {
                     "name": name,
                     "password": password,
-                    "role": role
+                    "role": role,
+                    "ecologyCode": ecologyCode,
+                    "ecologyPasswd": ecologyPasswd,
+                    "ecologyAddress": ecologyAddress
                 };
                 $.ajax({
                     url:"/addUser", //请求url
