@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://localhost:3306/ecologyclock?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8 #url
+    url: jdbc:mysql://120.55.37.227:33306/clock?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8 #url
     username: root
     password: ttx2011
     driver-class-name: com.mysql.jdbc.Driver
