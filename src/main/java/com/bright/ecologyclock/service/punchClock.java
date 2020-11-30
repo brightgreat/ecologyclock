@@ -12,6 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 import javax.mail.Message;
@@ -21,15 +23,35 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class punchClock {
+    private ExecutorService executor = Executors.newCachedThreadPool() ;
 
+    public void  punClock(UserBean ub) throws Exception {
+        executor.submit(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    Integer random = punchClock.getRandomForHundred();
+                    System.out.println(random);
+                    //进程随机睡眠一个时间
+                    Thread.sleep(random * 1000);
+                    String location = getAddressForgaode(ub);
+                    String clockRes = call(ub, location);
+//                    return clockRes;
+                }catch (Exception e){
+                    throw new RuntimeException("报错啦！！");
+                }
+            }
+        });
 
-    public static String punClock(UserBean ub) throws Exception {
-        String location = getAddressForgaode(ub);
-        String clockRes = call(ub, location);
-        return clockRes;
     }
 
-
+    /**
+     * DK程序call
+     * @param ub
+     * @param location
+     * @return
+     * @throws Exception
+     */
     public static String call(UserBean ub, String location) throws Exception {
         String resul;
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -323,6 +345,14 @@ public class punchClock {
             return e.toString();
         }
 
+    }
+
+    /**
+     * 获取100内的随机数
+     * @return
+     */
+    public static  Integer getRandomForHundred(){
+        return (int)(100 * Math.random() + 1);
     }
 
 }
