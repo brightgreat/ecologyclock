@@ -2,7 +2,7 @@ package com.bright.ecologyclock.controller;
 
 import com.bright.ecologyclock.bean.UserBean;
 import com.bright.ecologyclock.service.UserService;
-import com.bright.ecologyclock.service.punchClock;
+import com.bright.ecologyclock.service.PunchClock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,8 @@ public class LoginController {
 
     @Autowired
     UserService usSvc;
+    @Autowired
+    PunchClock pun;
 
     @RequestMapping("/login")
     public String show() {
@@ -47,7 +49,7 @@ public class LoginController {
         System.out.println(name);
         UserBean userBean = usSvc.getUser(name);
         //这里采用异步调用直接返回success
-        punchClock pun = new punchClock();
+//        PunchClock pun = new PunchClock();
         pun.punClock(userBean);
         return "ecoloSuccess";
 //        if ("success".equals(res)) {

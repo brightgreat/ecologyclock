@@ -2,8 +2,8 @@ package com.bright.ecologyclock.service;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.bright.ecologyclock.bean.UserBean;
+import org.springframework.stereotype.Service;
 import sun.misc.BASE64Decoder;
 
 import java.io.BufferedReader;
@@ -22,15 +22,20 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class punchClock {
+@Service
+public class PunchClock {
     private ExecutorService executor = Executors.newCachedThreadPool() ;
 
     public void  punClock(UserBean ub) throws Exception {
+        if (isWeekend()) {
+            SendEmailForEmail("周末不需要打卡", "周末不需要打卡", ub.getName());
+            return;
+        }
         executor.submit(new Runnable(){
             @Override
             public void run() {
                 try {
-                    Integer random = punchClock.getRandomForHundred();
+                    Integer random = getRandomForHundred();
                     System.out.println(random);
                     //进程随机睡眠一个时间
                     Thread.sleep(random * 1000);
@@ -353,6 +358,39 @@ public class punchClock {
      */
     public static  Integer getRandomForHundred(){
         return (int)(100 * Math.random() + 1);
+    }
+
+
+    /**
+     * 判断是否是周末
+     * @return
+     */
+    public boolean  isWeekend(){
+        try {
+            Calendar cal = Calendar.getInstance();
+            String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+            Date date;
+            try {
+                date = new Date();
+                cal.setTime(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //一周的第几天
+            int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+            if (w < 0)
+                w = 0;
+            System.out.println("今天是" + weekDays[w]);
+            if(weekDays[w].equals("星期日") || weekDays[w].equals("星期六")){
+                return true;
+            }else {
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e.toString());
+            return false;
+        }
+
     }
 
 }
