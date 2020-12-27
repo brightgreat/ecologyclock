@@ -27,13 +27,27 @@ CREATE TABLE `user` (
   `ecologyCode` varchar(50) DEFAULT NULL,
   `ecologyPasswd` varchar(50) DEFAULT NULL,
   `ecologyAddress` varchar(200) DEFAULT NULL,
-  `ningMengCode` varchar(50) DEFAULT NULL COMMENT '柠檬',
-  `ningMengPasswd` varchar(50) DEFAULT NULL COMMENT '柠檬',
-  `vpnCode` varchar(50) DEFAULT NULL COMMENT 'vpn',
-  `vpnPasswd` varchar(50) DEFAULT NULL COMMENT 'vpn',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
+
+alter table  `user`
+ add column `isNingMengClock` int(11) DEFAULT 0,
+ add column `ningMengCode` varchar(50) DEFAULT NULL COMMENT '柠檬',
+ add column `ningMengPasswd` varchar(50) DEFAULT NULL COMMENT '柠檬',
+ add column `isVpnClock` int(11) DEFAULT 0,
+ add column `vpnCode` varchar(50) DEFAULT NULL COMMENT 'vpn',
+ add column `vpnPasswd` varchar(50) DEFAULT NULL COMMENT 'vpn',
+ add column `userDef1` varchar(50) DEFAULT NULL COMMENT 'userDef1',
+ add column `userDef2` varchar(50) DEFAULT NULL COMMENT 'userDef2',
+ add column `userDef3` varchar(50) DEFAULT NULL COMMENT 'userDef3',
+ add column `userDef4` varchar(50) DEFAULT NULL COMMENT 'userDef4',
+ add column `userDef5` varchar(50) DEFAULT NULL COMMENT 'userDef5',
+ add column `userDef6` varchar(50) DEFAULT NULL COMMENT 'userDef6',
+ add column `userDef7` varchar(50) DEFAULT NULL COMMENT 'userDef7',
+ add column `userDef8` varchar(50) DEFAULT NULL COMMENT 'userDef8',
+ add column `userDef9` varchar(50) DEFAULT NULL COMMENT 'userDef9',
+ add column `userDef10` varchar(50) DEFAULT NULL COMMENT 'userDef10',
 -- ----------------------------
 -- Records of user
 -- ----------------------------
