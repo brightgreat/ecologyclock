@@ -37,12 +37,13 @@ public class NingMengServer {
             // 设置读取远程返回的数据时间：60000毫秒
             connection.setReadTimeout(60000);
             connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-            connection.setRequestProperty("c_secure_uid", "MzQxMjQ%3D");
-            connection.setRequestProperty("c_secure_pass", "c1fec63c3f96279e98469fef5bd33dd6");
-            connection.setRequestProperty("c_secure_ssl", "eWVhaA%3D%3D");
-            connection.setRequestProperty("c_secure_tracker_ssl", "eWVhaA%3D%3D");
-            connection.setRequestProperty("c_secure_login", "bm9wZQ%3D%3D");
-            connection.setRequestProperty("__cfduid", "d122666a97857d8a4c0ed78f6e2de39181599147650");
+            // 以下的头信息，都可以存在cookie里进行传输
+//            connection.setRequestProperty("c_secure_uid", "MzQxMjQ%3D");
+//            connection.setRequestProperty("c_secure_pass", "c1fec63c3f96279e98469fef5bd33dd6");
+//            connection.setRequestProperty("c_secure_ssl", "eWVhaA%3D%3D");
+//            connection.setRequestProperty("c_secure_tracker_ssl", "eWVhaA%3D%3D");
+//            connection.setRequestProperty("c_secure_login", "bm9wZQ%3D%3D");
+//            connection.setRequestProperty("__cfduid", "d122666a97857d8a4c0ed78f6e2de39181599147650");
             connection.setRequestProperty("Cookie", sessId);
             // 发送请求
             connection.connect();
