@@ -1,10 +1,7 @@
 package com.bright.ecologyclock;
 
 import com.bright.ecologyclock.bean.UserBean;
-import com.bright.ecologyclock.service.AESUtil;
-import com.bright.ecologyclock.service.NingMengServer;
-import com.bright.ecologyclock.service.PunchClock;
-import com.bright.ecologyclock.service.UserService;
+import com.bright.ecologyclock.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +20,8 @@ public class EcologyclockApplicationTests {
     NingMengServer nmSvc;
     @Autowired
     AESUtil aeSvc;
+    @Autowired
+    FeiJiServer fjSvc;
 
     @Test
     public void contextLoads() throws Exception {
@@ -45,7 +44,7 @@ public class EcologyclockApplicationTests {
  * cook: __cfduid=dc666a176f0bb36bab187bd2e5ccfab251608382636; _ga=GA1.2.756003259.1608382726; PHPSESSID=ho0ig5jt9bkj1sf0p9omeivr7a; uid=79135; email=3310579331%40qq.com; key=b961e59a2414c7dee56d458c9e23fe90dd96514882f1a; ip=2c71460783aaeba9412be12fe8c13f87; expire_in=1609175249; _gid=GA1.2.1676704882.1609088849; _gat=1; _gat_gtag_UA_162039658_1=1
  * 下次尝试
  * **/
-        System.out.println(nmSvc.callHttpNingMeng("https://linkhub.cool/user/checkin", "__cfduid=dc666a176f0bb36bab187bd2e5ccfab251608382636; _ga=GA1.2.756003259.1608382726; PHPSESSID=ho0ig5jt9bkj1sf0p9omeivr7a; uid=79135; email=3310579331%40qq.com; key=b961e59a2414c7dee56d458c9e23fe90dd96514882f1a; ip=2c71460783aaeba9412be12fe8c13f87; expire_in=1609175249; _gid=GA1.2.1676704882.1609088849; _gat=1; _gat_gtag_UA_162039658_1=1"));
+        System.out.println(fjSvc.callHttpNingMeng("https://linkhub.cool/user/checkin", "__cfduid=dc666a176f0bb36bab187bd2e5ccfab251608382636; _ga=GA1.2.756003259.1608382726; uid=79135; email=3310579331%40qq.com; key=28b6d6f66386cdc4d6f8175e7570482618cc39754a639; ip=6f251d4f85526d10613f246468873bb9; expire_in=1610557137; _gid=GA1.2.1174922024.1609952340; _gat=1; _gat_gtag_UA_162039658_1=1"));
 
 
     }
