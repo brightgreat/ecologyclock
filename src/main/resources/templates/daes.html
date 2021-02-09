@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aes</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="pending">
+    <form name="fromV">
+        <div class="form-group">
+            <label for="aestextarea">待处理数据:</label>
+            <br>
+            <textarea name="aestextarea" id="aestextarea" cols="45" rows="5"></textarea>
+            <br>
+            <button id="aes">加 密</button>
+            <button id="des">解 密</button>
+            <br>
+            <label for="destextarea">结果:</label>
+            <br>
+            <textarea name="destextarea" id="destextarea" cols="45" rows="5"></textarea>
+        </div>
+    </form>
+</div>
+<script>
+    //字符串判空方法
+    function isBlank(str) {
+        if (str == "" || str == null || str == undefined) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $("#aes").click(function () {
+
+        var text = document.getElementById("aestextarea").value;
+        document.getElementById("destextarea").innerText = text;
+    })
+
+</script>
+</body>
+</html>
