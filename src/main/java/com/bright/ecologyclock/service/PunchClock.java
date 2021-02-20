@@ -95,7 +95,7 @@ public class PunchClock {
     public static String getAddressForgaode(UserBean ub) throws Exception {
         //调用高德获取经纬度
         String location;
-        String url = "https://restapi.amap.com/v3/place/text?s=rsv3&key=8325164e247e15eea68b59e89200988b&page=1&offset=1&city=310000&language=zh_cn&callback=jsonp_719899_&platform=JS&logversion=2.0&sdkversion=1.3&appname=https://lbs.amap.com/console/show/picker&csid=B95605C8-7F47-4B5A-A5A9-1AEC355E3A39&keywords=";
+        String url = "https://restapi.amap.com/v3/place/text?s=rsv3&key=fb1955284262c58a5611951de4de5c73&page=1&offset=1&city=310000&language=zh_cn&callback=jsonp_719899_&platform=JS&logversion=2.0&sdkversion=1.3&appname=https://lbs.amap.com/console/show/picker&csid=B95605C8-7F47-4B5A-A5A9-1AEC355E3A39&keywords=";
         String gaodeResult = gaoDeHttpPost(url + ub.getEcologyAddress());
         String gaodeJson = subString(gaodeResult, "(", ")");
         Map mapTypes = JSON.parseObject(gaodeJson);
@@ -353,11 +353,11 @@ public class PunchClock {
     }
 
     /**
-     * 获取100内的随机数
+     * 获取600内的随机数
      * @return
      */
     public static  Integer getRandomForHundred(){
-        return (int)(100 * Math.random() + 1);
+        return (int)(600 * Math.random() + 1);
     }
 
 
