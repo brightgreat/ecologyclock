@@ -10,6 +10,14 @@ spring:
     username: root
     password: ttx2011
     driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 5
+    maxActive: 50
+    maxIdle: 5
+    minIdle: 1
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    validationInterval: 30000
+    validationQueryTimeout: -1
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml

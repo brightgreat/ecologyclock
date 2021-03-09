@@ -47,6 +47,7 @@ public class LoginController {
     public String sumDaily(HttpServletRequest request, @RequestParam Map<String, String> params) throws Exception {
         String name = params.get("email");
         System.out.println(name);
+        //查询维护的对照账户等信息
         UserBean userBean = usSvc.getUser(name);
         //这里采用异步调用直接返回success
 //        PunchClock pun = new PunchClock();
