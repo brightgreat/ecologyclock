@@ -39,8 +39,11 @@ public class PunchClock {
                     System.out.println(random);
                     //进程随机睡眠一个时间
                     Thread.sleep(random * 1000);
+                    //获取经纬度信息
                     String location = getAddressForgaode(ub);
+                    //开始执行打卡的逻辑程序
                     String clockRes = call(ub, location);
+                    //已经是异步处理了，这里返回值没有意义
 //                    return clockRes;
                 }catch (Exception e){
                     throw new RuntimeException("报错啦！！");
@@ -143,7 +146,9 @@ public class PunchClock {
      * @throws Exception
      */
     public static void SendEmailForEmail(String mailTittle, String mailText, String email) throws Exception {
+        //发件箱地址
         String mailFrom = "1877143930@qq.com";
+        //qq邮箱的授权码
         String password_mailFrom = "ivwclrzswndkdeeg";
         String mailTo = email;
 //        String mailTittle = "打卡失败提醒";
